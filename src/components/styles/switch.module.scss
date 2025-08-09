@@ -1,0 +1,58 @@
+.switch-button {
+  position: relative;
+  display: inline-block;
+
+  > div {
+    position: relative;
+  }
+
+  i {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+    cursor: pointer;
+    vertical-align: top;
+    border-radius: 22px;
+    background-color: #110424;
+    transition: 0.2s ease-in-out;
+
+    &::before {
+      position: absolute;
+      top: 3px;
+      left: 0;
+      width: 18px;
+      height: 18px;
+      content: '';
+      border-radius: 50%;
+      background-color: white;
+      transform: translateX(4px);
+      transition: 0.2s ease-in-out;
+    }
+  }
+
+  input {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    opacity: 0;
+    visibility: hidden;
+    appearance: none;
+
+    &:checked {
+      + i {
+        background-color: #cc61fc;
+
+        &::before {
+          transform: translateX(22px);
+        }
+      }
+    }
+
+    &:disabled {
+      + i {
+        opacity: 0.5;
+      }
+    }
+  }
+}
